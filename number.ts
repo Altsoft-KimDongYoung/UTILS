@@ -32,3 +32,26 @@ export const formatNumberWithSuffix = (number: number) => {
 
   return number.toString();
 };
+
+export const convertSuffixToNum = (value: string) => {
+  const extractedNum = parseFloat(value);
+  const extractedNumToStr = extractedNum.toString();
+
+  if (isNaN(extractedNum)) {
+    return NaN;
+  }
+
+  // 문자열에서 단위 추출 (숫자를 제외한 부분)
+  const suffix = value.replace(extractedNumToStr, '').trim().toLowerCase();
+
+  // 단위에 따라 숫자 변환
+  switch (suffix) {
+    case 'km':
+      return extractedNum * 1000;
+    case 'm':
+      return extractedNum;
+    default:
+      // 알 수 없는 단위인 경우 처리
+      return NaN;
+  }
+};
