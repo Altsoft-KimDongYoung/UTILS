@@ -33,6 +33,32 @@ export const formatNumberWithSuffix = (number: number) => {
   return number.toString();
 };
 
+// 핸드폰 번호에 하이픈 붙여주는 유틸함수
+export const formatHyphenPhoneNumber = (value: string) => {
+  const rawPhone = value.replace(/-/g, '');
+  let formattedPhone = '';
+
+  if (rawPhone.length < 4) {
+    formattedPhone = rawPhone;
+  } else if (rawPhone.length < 8) {
+    formattedPhone = `${rawPhone.slice(0, 3)}-${rawPhone.slice(3)}`;
+  } else if (rawPhone.length < 11) {
+    formattedPhone = `${rawPhone.slice(0, 3)}-${rawPhone.slice(
+      3,
+      7
+    )}-${rawPhone.slice(7)}`;
+  } else {
+    formattedPhone = `${rawPhone.slice(0, 3)}-${rawPhone.slice(
+      3,
+      7
+    )}-${rawPhone.slice(7, 11)}`;
+  }
+
+  const displayPhone = formattedPhone.length > 0 ? formattedPhone : '';
+
+  return displayPhone;
+};
+
 export const convertSuffixToNum = (value: string) => {
   const extractedNum = parseFloat(value);
   const extractedNumToStr = extractedNum.toString();
