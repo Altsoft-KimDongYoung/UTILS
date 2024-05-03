@@ -1,3 +1,8 @@
+interface FormatHyphenValueProps {
+  value: string;
+  formatType: 'mobile' | 'businessNumber';
+}
+
 /* 숫자에 천 단위마다 콤마(,)를 추가하는 함수 */
 export const numberWithCommas = (number: number) => {
   const parts = number.toString().split('.');
@@ -33,7 +38,7 @@ export const formatNumberWithSuffix = (number: number) => {
   return number.toString();
 };
 
-// 핸드폰 번호에 하이픈 붙여주는 유틸함수
+/** @Utils 핸드폰 번호에 하이픈을 붙여준다. */
 export const formatHyphenPhoneNumber = (value: string) => {
   const rawPhone = value.replace(/-/g, '');
   let formattedPhone = '';
@@ -57,6 +62,32 @@ export const formatHyphenPhoneNumber = (value: string) => {
   const displayPhone = formattedPhone.length > 0 ? formattedPhone : '';
 
   return displayPhone;
+};
+
+/** @Utils 사업자등록번호에 하이픈을 붙여준다. */
+export const formatHyphenBusinessNumber = (value: string) => {
+  const rawNumber = value.replace(/-/g, '');
+  let formattedNumber = '';
+
+  if (rawNumber.length < 4) {
+    formattedNumber = rawNumber;
+  } else if (rawNumber.length < 6) {
+    formattedNumber = `${rawNumber.slice(0, 3)}-${rawNumber.slice(3)}`;
+  } else if (rawNumber.length < 10) {
+    formattedNumber = `${rawNumber.slice(0, 3)}-${rawNumber.slice(
+      3,
+      5
+    )}-${rawNumber.slice(5)}`;
+  } else {
+    formattedNumber = `${rawNumber.slice(0, 3)}-${rawNumber.slice(
+      3,
+      5
+    )}-${rawNumber.slice(5, 10)}`;
+  }
+
+  const displayNumber = formattedNumber.length > 0 ? formattedNumber : '';
+
+  return displayNumber;
 };
 
 export const convertSuffixToNum = (value: string) => {
