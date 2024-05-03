@@ -64,7 +64,7 @@ export const formatHyphenPhoneNumber = (value: string) => {
   return displayPhone;
 };
 
-/** @Utils 사업자등록번호에 하이픈을 붙여준다. */
+/** @@Utils 사업자등록번호에 하이픈을 붙여준다. */
 export const formatHyphenBusinessNumber = (value: string) => {
   const rawNumber = value.replace(/-/g, '');
   let formattedNumber = '';
