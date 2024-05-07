@@ -26,7 +26,12 @@ export const appendFormData = (formData: FormData, data: any, prefix = '') => {
       const value = data[key];
       const newKey = prefix ? `${prefix}.${key}` : key;
 
-      if (value instanceof Object && !(value instanceof File)) {
+      if (Array.isArray(value)) {
+        value.forEach((item, index) => {
+          const arrayKey = `${newKey}[${index}]`;
+          formData.append(arrayKey, item);
+        });
+      } else if (value instanceof Object && !(value instanceof File)) {
         appendFormData(formData, value, newKey);
       } else {
         formData.append(newKey, value);
