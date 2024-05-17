@@ -90,6 +90,17 @@ export const formatHyphenBusinessNumber = (value: string) => {
   return displayNumber;
 };
 
+/** @Utils 핸드폰번호, 지역번호 모두 대응하여 하이픈을 붙여준다. */
+export const formatHypenContactNumber = (value: string) => {
+  const numbersOnly = value.replace(/\D/g, '');
+
+  if (numbersOnly.startsWith('02')) {
+    return numbersOnly.replace(/(\d{2})(\d{3,4})(\d{4})/, '$1-$2-$3');
+  } else {
+    return numbersOnly.replace(/(\d{3})(\d{3,4})(\d{4})/, '$1-$2-$3');
+  }
+};
+
 export const convertSuffixToNum = (value: string) => {
   const extractedNum = parseFloat(value);
   const extractedNumToStr = extractedNum.toString();
