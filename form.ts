@@ -26,12 +26,18 @@ export const appendFormData = (formData: FormData, data: any, prefix = '') => {
       const value = data[key];
       const newKey = prefix ? `${prefix}.${key}` : key;
 
-      if (Array.isArray(value)) {
+      if (value === null || value === undefined) {
+        continue;
+      } else if (Array.isArray(value)) {
         value.forEach((item, index) => {
           const arrayKey = `${newKey}[${index}]`;
           formData.append(arrayKey, item);
         });
-      } else if (value instanceof Object && !(value instanceof File)) {
+      } else if (value instanceof FileList) {
+        value.length > 0 && formData.append(newKey, value[0]);
+      } else if (value instanceof File) {
+        formData.append(newKey, value);
+      } else if (value instanceof Object) {
         appendFormData(formData, value, newKey);
       } else {
         formData.append(newKey, value);
