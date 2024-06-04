@@ -57,6 +57,10 @@ export class Auth {
     return this.user?.localboxId;
   }
 
+  get loginId() {
+    return this.user?.loginId;
+  }
+
   get roles() {
     return this.user?.roles;
   }

@@ -1,5 +1,7 @@
 import { AxiosError, isAxiosError } from 'axios';
 
+import { ComponentType } from 'react';
+
 import {
   ApiResponseFailed,
   RenewRefreshTokenBody,
@@ -34,4 +36,14 @@ export const isAxiosErrorWithReturnCode = (
     !!error.response.data &&
     !!error.response.data.returnCode
   );
+};
+
+export const isComponentType = <T>(
+  Component: unknown
+): Component is ComponentType<T> => {
+  return typeof Component === 'function' || typeof Component === 'object';
+};
+
+export const isPropsType = <T>(props: unknown): props is T => {
+  return typeof props === 'object' && props !== null;
 };
