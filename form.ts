@@ -1,4 +1,4 @@
-import { has, isEmpty, negate, pick, some } from 'lodash-es';
+import { every, has, isEmpty, negate, pick, some } from 'lodash-es';
 
 import { KeyOf, Many } from '@/types/common';
 
@@ -18,6 +18,9 @@ export const hasNotEmptyValues = <T extends object, K extends KeyOf<T>>(
   obj: T,
   ...props: Array<Many<K>>
 ): boolean => some(pick(obj, ...props), negate(isEmpty));
+
+export const hasEmptyArray = <T>(arr: T[]): boolean =>
+  every(arr, (value) => value === '');
 
 // FormData에 데이터를 추가하는 함수
 export const appendFormData = (formData: FormData, data: any, prefix = '') => {
