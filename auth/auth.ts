@@ -73,6 +73,18 @@ export class Auth {
     return this.user?.myTownLongiX;
   }
 
+  get currentTownName() {
+    return this.user?.currentTownName;
+  }
+
+  get currentLongiX() {
+    return this.user?.currentLongiX;
+  }
+
+  get currentLatiY() {
+    return this.user?.currentLatiY;
+  }
+
   get localboxCreatorType() {
     return this.user?.localboxCreatorType;
   }
@@ -132,11 +144,32 @@ export class Auth {
   }
 
   // 사용자 동네 설정
-  setChangeMyTown(myTownLongiX: number, myTownLatiY: number) {
+  setChangeMyTown(myTownLongiY: number, myTownLatiX: number) {
     if (this.user) {
-      const newUser = { ...this.user, myTownLongiX, myTownLatiY };
+      const newUser = { ...this.user, myTownLongiY, myTownLatiX };
       Storages.setUser(newUser);
       this.setUser(newUser as UserModel);
+      this.onUserChange(newUser);
+    }
+  }
+
+  // 사용자 현재 위치 설정
+  setChangeCurrentPosition(currentLongiY: number, currentLatiX: number) {
+    if (this.user) {
+      const newUser = { ...this.user, currentLongiY, currentLatiX };
+      Storages.setUser(newUser);
+      this.setUser(newUser as UserModel);
+      this.onUserChange(newUser);
+    }
+  }
+
+  // 사용자 동네 areaName 설정
+  setChangeCurrentTownName(currentTownName: string) {
+    if (this.user) {
+      const newUser = { ...this.user, currentTownName };
+      Storages.setUser(newUser);
+      this.setUser(newUser as UserModel);
+      this.onUserChange(newUser);
     }
   }
 }
