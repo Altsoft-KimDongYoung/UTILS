@@ -144,9 +144,9 @@ export class Auth {
   }
 
   // 사용자 동네 설정
-  setChangeMyTown(myTownLongiY: number, myTownLatiX: number) {
+  setChangeMyTown(myTownLatiY: number, myTownLongiX: number) {
     if (this.user) {
-      const newUser = { ...this.user, myTownLongiY, myTownLatiX };
+      const newUser = { ...this.user, myTownLatiY, myTownLongiX };
       Storages.setUser(newUser);
       this.setUser(newUser as UserModel);
       this.onUserChange(newUser);
