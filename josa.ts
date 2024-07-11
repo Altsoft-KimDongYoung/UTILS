@@ -1,4 +1,4 @@
-export type JosaOption = '이' | '가' | '이/가' | '을' | '를' | '을/를';
+export type JosaOption = '이' | '가' | '이/가' | '을' | '를' | '을/를' | '으로';
 
 const checkKorean = (word: string) => {
   const lastChar = word.charCodeAt(word.length - 1);
@@ -17,6 +17,8 @@ const formats = (word: string, josa: JosaOption) => {
     case '를':
     case '을/를':
       return checkKorean(word) ? '을' : '를';
+    case '으로':
+      return checkKorean(word) ? '으로' : '로';
     default:
       throw 'Invalid format!';
   }
