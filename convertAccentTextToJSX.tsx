@@ -1,6 +1,6 @@
 import React, { Fragment, PropsWithChildren } from 'react';
 
-interface ConvertAccentTextToJSXProps {
+export interface ConvertAccentTextToJSXProps {
   template: string;
   values?: Record<string, string>;
   Element?: React.ComponentType<PropsWithChildren> | string;
