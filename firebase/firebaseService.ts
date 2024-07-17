@@ -1,4 +1,4 @@
-import { FirebaseApp, getApps, initializeApp } from 'firebase/app';
+import { FirebaseApp, getApp, getApps, initializeApp } from 'firebase/app';
 import { getMessaging, getToken, Messaging } from 'firebase/messaging';
 
 import { isBrowser } from '@/utils/window';
@@ -28,14 +28,14 @@ export class FirebaseService {
   }
 
   private initializeFirebaseApp(): FirebaseApp {
-    return getApps()[0] || initializeApp(firebaseConfig);
+    return !getApps().length ? initializeApp(firebaseConfig) : getApp();
   }
 
   private initializeMessaging(): Messaging | null {
     return isBrowser() ? getMessaging(this.firebaseApp) : null;
   }
 
-  private async initializeFcmToken() {
+  async initializeFcmToken() {
     if (this.messaging) {
       try {
         const token = await getToken(this.messaging, {
