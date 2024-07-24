@@ -154,9 +154,9 @@ export class Auth {
   }
 
   // 사용자 현재 위치 설정
-  setChangeCurrentPosition(currentLongiY: number, currentLatiX: number) {
+  setChangeCurrentPosition(currentLatiY: number, currentLongiX: number) {
     if (this.user) {
-      const newUser = { ...this.user, currentLongiY, currentLatiX };
+      const newUser = { ...this.user, currentLatiY, currentLongiX };
       Storages.setUser(newUser);
       this.setUser(newUser as UserModel);
       this.onUserChange(newUser);
