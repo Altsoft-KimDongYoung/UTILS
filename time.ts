@@ -33,7 +33,7 @@ export const timeFuc = (commentTime: string) => {
  * 형식에 맞는 문자열로 반환한다.
  * */
 export const convertNewTextToDate = (date: string) => {
-  const compareToDate = dayjs(date);
+  const compareToDate = dayjs(date, 'YYYY.MM.DD HH:mm');
   const currentDate = dayjs();
 
   assert(compareToDate.isValid(), '잘못된 날짜 형식입니다.');
