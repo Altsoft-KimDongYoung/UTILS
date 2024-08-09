@@ -53,9 +53,5 @@ export const convertNewTextToDate = (date: string) => {
     return `${diffInHours}시간전`;
   }
 
-  if (compareToDate.year() === currentDate.year()) {
-    return compareToDate.format('MM.DD');
-  }
-
   return compareToDate.format('YYYY.MM.DD');
 };
