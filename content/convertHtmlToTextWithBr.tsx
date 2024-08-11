@@ -22,5 +22,9 @@ export function convertHtmlToTextWithBr(html: string) {
   // 4. 나머지 모든 HTML 태그 제거
   text = text.replace(/<\/?[^>]+(>|$)/g, '');
 
+  // 5. &lt;와 &gt;를 각각 <와 >로 변환
+  text = text.replace(/&lt;/g, '<');
+  text = text.replace(/&gt;/g, '>');
+
   return text.trim();
 }
