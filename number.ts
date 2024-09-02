@@ -25,9 +25,7 @@ export const formatNumberWithSuffix = (number: number) => {
     const isQuotientThreeDigits = quotient.length === 3;
 
     const decimal =
-      hasDecimal && !isFirstDecimalZero && !isQuotientThreeDigits
-        ? '.' + firstDecimal
-        : '';
+      hasDecimal && !isFirstDecimalZero && !isQuotientThreeDigits ? '.' + firstDecimal : '';
     return quotient + decimal + suffix;
   };
 
@@ -48,15 +46,9 @@ export const formatHyphenPhoneNumber = (value: string) => {
   } else if (rawPhone.length < 8) {
     formattedPhone = `${rawPhone.slice(0, 3)}-${rawPhone.slice(3)}`;
   } else if (rawPhone.length < 11) {
-    formattedPhone = `${rawPhone.slice(0, 3)}-${rawPhone.slice(
-      3,
-      7
-    )}-${rawPhone.slice(7)}`;
+    formattedPhone = `${rawPhone.slice(0, 3)}-${rawPhone.slice(3, 7)}-${rawPhone.slice(7)}`;
   } else {
-    formattedPhone = `${rawPhone.slice(0, 3)}-${rawPhone.slice(
-      3,
-      7
-    )}-${rawPhone.slice(7, 11)}`;
+    formattedPhone = `${rawPhone.slice(0, 3)}-${rawPhone.slice(3, 7)}-${rawPhone.slice(7, 11)}`;
   }
 
   const displayPhone = formattedPhone.length > 0 ? formattedPhone : '';
@@ -74,15 +66,9 @@ export const formatHyphenBusinessNumber = (value: string) => {
   } else if (rawNumber.length < 6) {
     formattedNumber = `${rawNumber.slice(0, 3)}-${rawNumber.slice(3)}`;
   } else if (rawNumber.length < 10) {
-    formattedNumber = `${rawNumber.slice(0, 3)}-${rawNumber.slice(
-      3,
-      5
-    )}-${rawNumber.slice(5)}`;
+    formattedNumber = `${rawNumber.slice(0, 3)}-${rawNumber.slice(3, 5)}-${rawNumber.slice(5)}`;
   } else {
-    formattedNumber = `${rawNumber.slice(0, 3)}-${rawNumber.slice(
-      3,
-      5
-    )}-${rawNumber.slice(5, 10)}`;
+    formattedNumber = `${rawNumber.slice(0, 3)}-${rawNumber.slice(3, 5)}-${rawNumber.slice(5, 10)}`;
   }
 
   const displayNumber = formattedNumber.length > 0 ? formattedNumber : '';

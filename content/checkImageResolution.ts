@@ -7,10 +7,7 @@ export const checkImageResolution = (
   return img.width >= minWidth && img.height >= minHeight;
 };
 
-export const createImageObjectURL = (
-  file: File,
-  callback: (url: string) => void
-) => {
+export const createImageObjectURL = (file: File, callback: (url: string) => void) => {
   const reader = new FileReader();
 
   reader.onload = (e) => {

@@ -1,7 +1,4 @@
-export const convertURLtoFile = async (
-  url: string,
-  originalFileName?: string
-) => {
+export const convertURLtoFile = async (url: string, originalFileName?: string) => {
   try {
     const response = await fetch(url);
     const data = await response.blob();

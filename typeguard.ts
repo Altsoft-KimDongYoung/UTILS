@@ -2,11 +2,7 @@ import { AxiosError, isAxiosError } from 'axios';
 
 import { ComponentType } from 'react';
 
-import {
-  ApiResponseFailed,
-  RenewRefreshTokenBody,
-  RequiredWith,
-} from '@/types/common';
+import { ApiResponseFailed, RenewRefreshTokenBody, RequiredWith } from '@/types/common';
 
 export const isUndefinedTypeGuard = <T>(value: T | undefined): T => {
   if (value === undefined) {
@@ -15,9 +11,7 @@ export const isUndefinedTypeGuard = <T>(value: T | undefined): T => {
   return value;
 };
 
-export const isRenewRefreshTokenBody = (
-  body: any
-): body is RenewRefreshTokenBody => {
+export const isRenewRefreshTokenBody = (body: any): body is RenewRefreshTokenBody => {
   return (
     typeof body.userId === 'number' &&
     typeof body.refreshToken === 'string' &&
@@ -38,9 +32,7 @@ export const isAxiosErrorWithReturnCode = (
   );
 };
 
-export const isComponentType = <T>(
-  Component: unknown
-): Component is ComponentType<T> => {
+export const isComponentType = <T>(Component: unknown): Component is ComponentType<T> => {
   return typeof Component === 'function' || typeof Component === 'object';
 };
 

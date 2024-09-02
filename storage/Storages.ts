@@ -26,10 +26,7 @@ export class Storages {
   // 유저정보 저장
   static setUser(user: UserModel) {
     if (!Storages.isServer()) {
-      Storages.getSelectedStorage().setItem(
-        USER_STORAGE_KEY,
-        JSON.stringify(user)
-      );
+      Storages.getSelectedStorage().setItem(USER_STORAGE_KEY, JSON.stringify(user));
     }
   }
 

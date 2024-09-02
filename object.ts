@@ -1,7 +1,4 @@
-type ObjectKeys<T extends Record<PropertyKey, unknown>> = `${Exclude<
-  keyof T,
-  symbol
->}`;
+type ObjectKeys<T extends Record<PropertyKey, unknown>> = `${Exclude<keyof T, symbol>}`;
 
 const objectValues = <Type extends Record<PropertyKey, unknown>>(
   obj: Type
@@ -18,9 +15,7 @@ const objectKeys = <Type extends Record<PropertyKey, unknown>>(
 const objectEntries = <Type extends Record<PropertyKey, unknown>>(
   obj: Type
 ): Array<[ObjectKeys<Type>, Type[ObjectKeys<Type>]]> => {
-  return Object.entries(obj) as Array<
-    [ObjectKeys<Type>, Type[ObjectKeys<Type>]]
-  >;
+  return Object.entries(obj) as Array<[ObjectKeys<Type>, Type[ObjectKeys<Type>]]>;
 };
 
 export const object = {

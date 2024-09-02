@@ -1,10 +1,4 @@
-export function highlightText({
-  text,
-  keyword,
-}: {
-  text: string;
-  keyword: string;
-}) {
+export function highlightText({ text, keyword }: { text: string; keyword: string }) {
   // HTML 문자열로 변환
   const parts = text.split(new RegExp(`(${keyword})`, 'gi'));
   const highlightedText = parts

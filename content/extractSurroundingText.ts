@@ -30,14 +30,8 @@ export function extractSurroundingText({
     const endCompensation = neededEndLength - actualEndLength;
 
     // 최종적으로 텍스트를 슬라이스하는 범위 설정
-    const sliceStart = Math.max(
-      keywordStart - actualStartLength - endCompensation,
-      0
-    );
-    const sliceEnd = Math.min(
-      keywordEnd + actualEndLength + startCompensation,
-      text.length
-    );
+    const sliceStart = Math.max(keywordStart - actualStartLength - endCompensation, 0);
+    const sliceEnd = Math.min(keywordEnd + actualEndLength + startCompensation, text.length);
 
     // 지정된 범위의 텍스트를 슬라이스
     let extractedText = text.slice(sliceStart, sliceEnd);

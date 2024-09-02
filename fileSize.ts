@@ -5,10 +5,7 @@ type getFileSizeProps = {
   symbol?: string;
 };
 
-export const getFileSize = (
-  bytes = 0,
-  { option, symbol = '/' }: getFileSizeProps = {}
-) => {
+export const getFileSize = (bytes = 0, { option, symbol = '/' }: getFileSizeProps = {}) => {
   if (!bytes) return `0MB${symbol}${SIZE.CONVERT.MAX_DOC_FILE_MB}`;
 
   const sufixes = ['B', 'KB', 'MB', 'GB'];
