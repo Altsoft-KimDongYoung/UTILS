@@ -19,10 +19,13 @@ export function convertHtmlToTextWithBr(html: string) {
   text = text.replace(/<\/ol>/gi, '\n');
   text = text.replace(/<\/ul>/gi, '\n');
 
-  // 4. 나머지 모든 HTML 태그 제거
+  // 4. &nbsp;를 공백으로 변환
+  text = text.replace(/&nbsp;/g, ' ');
+
+  // 5. 나머지 모든 HTML 태그 제거
   text = text.replace(/<\/?[^>]+(>|$)/g, '');
 
-  // 5. &lt;와 &gt;를 각각 <와 >로 변환
+  // 6. &lt;와 &gt;를 각각 <와 >로 변환
   text = text.replace(/&lt;/g, '<');
   text = text.replace(/&gt;/g, '>');
 
