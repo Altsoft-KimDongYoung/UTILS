@@ -5,6 +5,8 @@ import { isBrowser } from '@/utils/window';
 
 import firebaseConfig from '../../lib/firebase';
 
+const isReactNativeWebview = typeof window !== 'undefined' && window.ReactNativeWebView != null;
+
 export class FirebaseService {
   private static instance: FirebaseService | null = null;
 
@@ -32,7 +34,18 @@ export class FirebaseService {
   }
 
   private initializeMessaging(): Messaging | null {
-    return isBrowser() ? getMessaging(this.firebaseApp) : null;
+    /** 브라우저 환경인지 확인 */
+    if (!isBrowser()) {
+      return null;
+    }
+
+    /** React Native WebView 환경인지 확인 */
+    if (isReactNativeWebview) {
+      return null;
+    }
+
+    /** Firebase 메시징 객체 반환 */
+    return getMessaging(this.firebaseApp);
   }
 
   async initializeFcmToken() {
