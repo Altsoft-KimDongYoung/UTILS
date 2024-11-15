@@ -10,7 +10,7 @@ export const convertNewTextToDate = (date: string) => {
   const compareToDate = dayjs(date, 'YYYY.MM.DD HH:mm');
   const currentDate = dayjs();
 
-  assert(compareToDate.isValid(), '잘못된 날짜 형식입니다.');
+  // assert(compareToDate.isValid(), '잘못된 날짜 형식입니다.');
 
   const diffInMinutes = currentDate.diff(compareToDate, 'minute');
   const diffInHours = currentDate.diff(compareToDate, 'hour');
