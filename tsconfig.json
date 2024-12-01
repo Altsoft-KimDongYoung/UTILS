@@ -11,7 +11,7 @@
     "moduleResolution": "node",
     "baseUrl": "../..",
     "paths": {
-      "@/*": ["src/*"]
+      "@/types/*": ["node_modules/ondaji_types/*"]
     },
     "typeRoots": ["./node_modules/@types", "../../node_modules/@types"]
   },

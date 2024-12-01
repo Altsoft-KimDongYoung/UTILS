@@ -10,7 +10,8 @@
     "build": "tsc"
   },
   "dependencies": {
-    "react": "^18"
+    "react": "^18",
+    "ondaji_types": "git+https://github.com/Altsoft-KimDongYoung/TTEST.git"
   },
   "devDependencies": {
     "typescript": "^4.9.5",
