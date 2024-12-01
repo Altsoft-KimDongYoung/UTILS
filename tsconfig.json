@@ -1,19 +1,23 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "es2017",
     "module": "commonjs",
     "declaration": true,
     "outDir": "./dist",
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "jsx": "react",
+    "jsx": "react-jsx",
     "moduleResolution": "node",
-    "baseUrl": "../..",
+    "baseUrl": ".",
+    "types": ["navermaps"],
     "paths": {
-      "@/types/*": ["node_modules/ondaji_types/*"]
+      "@/types/common": ["./node_modules/ondaji_types/common"],
+      "@/types/domain": ["./node_modules/ondaji_types/domain"],
+      "@/utils/*": ["./*"],
+      "@/constants/*": ["./constants/*"]
     },
-    "typeRoots": ["./node_modules/@types", "../../node_modules/@types"]
+    "jsxImportSource": "react"
   },
   "include": ["**/*.ts", "**/*.tsx", "../constants/**/*.ts"],
   "exclude": ["node_modules", "dist"]

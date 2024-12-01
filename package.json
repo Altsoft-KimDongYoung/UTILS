@@ -10,12 +10,21 @@
     "build": "tsc"
   },
   "dependencies": {
-    "react": "^18",
-    "ondaji_types": "git+https://github.com/Altsoft-KimDongYoung/TTEST.git"
+    "@tanstack/react-query": "^5.x",
+    "dayjs": "^1.x",
+    "firebase": "^10.x",
+    "immer": "^10.x",
+    "lodash-es": "^4.x",
+    "next": "^14.x",
+    "yup": "^1.x",
+    "react": "^18.x"
   },
   "devDependencies": {
-    "typescript": "^4.9.5",
-    "@types/react": "^18.3.12",
-    "@types/navermaps": "^3.7.8"
+    "@types/node": "^20.x",
+    "@types/lodash-es": "^4.x",
+    "@types/react": "^18.x",
+    "typescript": "^5.x",
+    "ondaji_types": "git+https://github.com/Altsoft-KimDongYoung/TTEST.git",
+    "@types/navermaps": "^3.7.4"
   }
 }
